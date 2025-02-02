@@ -1,4 +1,3 @@
-# ![Example Stand](https://cdn.discordapp.com/attachments/1060530098006143057/1177775859218788432/example_stand.png) Example Stand (Ripples of the Past addon)
-An example of a Stand addon mod for [Ripples of the Past](https://github.com/StandoByte/Ripples-of-the-Past), a mod for Minecraft based on JoJo's Bizarre Adventure.
+# ![Example Stand](https://github.com/MakutaZeml/Epic-Hamon/blob/main/src/main/resources/logo_small.png?raw=true) Epic Hamon (Ripples of the Past addon)
+An addon that tries to implement hamon from [Ripples of the Past](https://github.com/StandoByte/Ripples-of-the-Past), a mod for Minecraft based on JoJo's Bizarre Adventure, to [Epic Fight Mod](https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod) 
   
-(it's kind of a tradition now to write a readme like this but feel free to do whatever here when editing your fork)

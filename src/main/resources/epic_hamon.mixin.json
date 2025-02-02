@@ -1,0 +1,20 @@
+{
+  "required": false,
+  "package": "com.zeml.epic_hamon.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MixinFirstPersonRenderer",
+    "MixinPatchedLivingEntityRenderer",
+    "MixinPPlayerRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "epic_hamon.mixin.refmap.json",
+  "minVersion": "0.8",
+  "mixins": [
+    "AttackAnimationAccessor",
+    "MixinAttackAnimation",
+    "MixinPlayerPatch"
+  ]
+}

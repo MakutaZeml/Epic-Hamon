@@ -80,15 +80,17 @@ public abstract class MixinAttackAnimation extends ActionAnimation {
                             }
                             break;
                         case "jojo:hamon_sunlight_yellow_overdrive":
-                            if((living.getMainHandItem().isEmpty() || living.getMainHandItem().getItem() instanceof GlovesItem)
-                                    &&(living.getOffhandItem().isEmpty() || living.getOffhandItem().getItem() instanceof GlovesItem)){
+                            if(((living.getMainHandItem().isEmpty() || living.getMainHandItem().getItem() instanceof GlovesItem)
+                                    &&(living.getOffhandItem().isEmpty() || living.getOffhandItem().getItem() instanceof GlovesItem)) &&
+                                    power.getEnergy() >0){
                                 hamon$normalHamonDamage(power,target,living,true,10.0F,power.getEnergy());
                                 power.consumeEnergy(power.getEnergy());
                             }
                             break;
                         case "jojo:jonathan_scarlet_overdrive":
-                            if((living.getMainHandItem().isEmpty() || living.getMainHandItem().getItem() instanceof GlovesItem)
-                                    &&(living.getOffhandItem().isEmpty() || living.getOffhandItem().getItem() instanceof GlovesItem)){
+                            if(((living.getMainHandItem().isEmpty() || living.getMainHandItem().getItem() instanceof GlovesItem)
+                                    &&(living.getOffhandItem().isEmpty() || living.getOffhandItem().getItem() instanceof GlovesItem))
+                            && power.getEnergy() >0){
                                 hamon$normalHamonDamageFire(power,target,living,true,10.0F,power.getEnergy());
                                 power.consumeEnergy(power.getEnergy());
                             }
@@ -123,13 +125,19 @@ public abstract class MixinAttackAnimation extends ActionAnimation {
         LivingEntity living = entityPatch.getOriginal();
         if(living.getMainHandItem().isEmpty() || living.getMainHandItem().getItem() instanceof GlovesItem){
             String action = living.getCapability(LivingDataProvider.CAPABILITY).map(LivingData::getAction).orElse("");
-            switch (action){
-                case "jojo:hamon_sunlight_yellow_overdrive": case "jojo:jonathan_scarlet_overdrive" :
-                    cir.setReturnValue(cir.getReturnValue()*.5F);
-                    break;
-                case "jojo:jonathan_overdrive_barrage": case "jojo:jonathan_syo_barrage":
-                    cir.setReturnValue(cir.getReturnValue()*100F);
-                    break;
+
+            if((living.getMainHandItem().isEmpty() || living.getMainHandItem().getItem() instanceof GlovesItem)
+                    &&(living.getOffhandItem().isEmpty() || living.getOffhandItem().getItem() instanceof GlovesItem)){
+                switch (action){
+                    case "jojo:hamon_sunlight_yellow_overdrive": case "jojo:jonathan_scarlet_overdrive" :
+                                                cir.setReturnValue(cir.getReturnValue()*.5F);
+
+                        break;
+                    case "jojo:jonathan_overdrive_barrage": case "jojo:jonathan_syo_barrage":
+                        cir.setReturnValue(cir.getReturnValue()*100F) ;
+
+                        break;
+                }
             }
         }
     }
